@@ -189,11 +189,22 @@ This function should be dynamic, accepting an array of any length.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyAnyArray() function and see if the test passes.*/
 
 // Write your code here
-let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
-
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  let productResult = dynamicArray.reduce(function(acc, curr) {
+    return multiply(acc, curr);
+  }, 1); 
+  
+  let message = `The numbers ${dynamicArray.join()} have a product of ${productResult}.`;
 
+  return [message];
 }
+
+let testDynamicArray = [1, 2, 3, 4, 5]; // Test array
+console.log(multiplyAnyArray(testDynamicArray)); // Corrected function call
+
+// Here is the test for multiplyArray(); uncomment it to run it
+multiplyAnyArray(testDynamicArray);
+
 
 // Here is the test for multiplyArray(); uncomment it to run it
 // testMultiplyAnyArray(testDynamicArray);
